@@ -1,0 +1,255 @@
+:root {
+  color-scheme: light;
+  --paper: #f3f1ea;
+  --ink: #17201c;
+  --muted: #626c66;
+  --accent: #1d7e88;
+  --accent-soft: #7fdbe4;
+  --line: rgba(23, 32, 28, 0.13);
+  --serif: ui-serif, "Iowan Old Style", "Palatino Linotype", "Book Antiqua",
+    Palatino, Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.page-shell {
+  width: min(100%, 1540px);
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 30px clamp(22px, 4.8vw, 76px) 26px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.site-header {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.brand:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+
+.brand-wordmark {
+  display: block;
+  width: clamp(148px, 13vw, 205px);
+  height: auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+  align-items: center;
+  gap: clamp(42px, 7vw, 112px);
+  padding: clamp(54px, 8vh, 104px) 0;
+}
+
+.hero-copy {
+  max-width: 650px;
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin: 0 0 20px;
+  color: var(--accent);
+  font-size: 0.76rem;
+  line-height: 1.3;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+h1 {
+  max-width: 9ch;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(4rem, 7.6vw, 8rem);
+  font-weight: 500;
+  line-height: 0.91;
+  letter-spacing: -0.055em;
+}
+
+.intro {
+  max-width: 570px;
+  margin: 30px 0 0;
+  color: var(--muted);
+  font-size: clamp(1.02rem, 1.25vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 28px 0 0;
+  padding: 9px 13px 9px 11px;
+  border: 1px solid rgba(23, 32, 28, 0.15);
+  border-radius: 999px;
+  color: #424c46;
+  background: rgba(255, 255, 255, 0.22);
+  font-size: 0.87rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(29, 126, 136, 0.12);
+}
+
+.hero-art {
+  position: relative;
+  overflow: hidden;
+  min-height: 450px;
+  aspect-ratio: 1.43;
+  border-radius: clamp(22px, 3vw, 42px);
+  background: #031331;
+  box-shadow:
+    0 30px 70px rgba(10, 28, 39, 0.14),
+    0 4px 12px rgba(10, 28, 39, 0.08);
+}
+
+.hero-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  border-radius: inherit;
+}
+
+.hero-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 49% 50%;
+}
+
+.site-footer {
+  padding-top: 21px;
+  border-top: 1px solid var(--line);
+  color: #747c77;
+  font-size: 0.81rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+::selection {
+  background: #c9e7e5;
+  color: var(--ink);
+}
+
+@media (max-width: 940px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 42px;
+    padding: 64px 0 54px;
+  }
+
+  .hero-copy {
+    max-width: 690px;
+  }
+
+  h1 {
+    max-width: 8.5ch;
+    font-size: clamp(4.2rem, 13vw, 7rem);
+  }
+
+  .hero-art {
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 1.65;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    padding: 22px 20px 20px;
+  }
+
+  .site-header {
+    min-height: 42px;
+  }
+
+  .brand-wordmark {
+    width: 150px;
+  }
+
+  .hero {
+    gap: 34px;
+    padding: 50px 0 42px;
+  }
+
+  .eyebrow {
+    margin-bottom: 17px;
+    font-size: 0.69rem;
+  }
+
+  h1 {
+    font-size: clamp(3.75rem, 18vw, 5.2rem);
+    line-height: 0.92;
+  }
+
+  .intro {
+    margin-top: 25px;
+    font-size: 1rem;
+    line-height: 1.64;
+  }
+
+  .status {
+    margin-top: 25px;
+  }
+
+  .hero-art {
+    aspect-ratio: 1.18;
+    border-radius: 24px;
+  }
+
+  .hero-art img {
+    object-position: 50% 50%;
+  }
+}
